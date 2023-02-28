@@ -161,9 +161,10 @@ def main() = {
   //    val pattern = "42" || ( ('a' <*>) ~ ('b' <+>) ~ ('c'{3}))
   //
 
-  val aStar = Star(Character('a'))
-  val bPlus = Concat(Character('b'), Star(Character('b')))
-  val pattern = Union(answer, Concat(aStar, Concat(bPlus, cThree)))
+  // val aStar = Star(Character('a'))
+  // val bPlus = Concat(Character('b'), Star(Character('b')))
+  // val pattern = Union(answer, Concat(aStar, Concat(bPlus, cThree)))
+  val pattern = "42" || ( ('a' <*>) ~ ('b' <+>) ~ ('c'{3}))
 
   require(pattern matches "42")
   require(pattern matches "bccc")
@@ -198,7 +199,8 @@ def main() = {
     )
   )
 
-  val message = Concat(Star(hello), world)
+  // val message = Concat(Star(hello), world)
+  val message = ("hello" <*>) ~ "world"
 
   require(message matches "helloworld")
   require(message matches "world")
@@ -217,8 +219,9 @@ def main() = {
   val threeDigits = Concat(digit, Concat(digit, digit))
   val fourDigits = Concat(threeDigits, digit)
   val areaCode = Concat(Character('('), Concat(threeDigits, Character(')')))
-  val telNumber =
-    Concat(areaCode, Concat(threeDigits, Concat(Character('-'), fourDigits)))
+  // val telNumber =
+  //   Concat(areaCode, Concat(threeDigits, Concat(Character('-'), fourDigits)))
+  val telNumber = '(' ~ digit{3} ~ ')' ~ digit{3} ~ '-' ~ digit{4}
 
   require(telNumber matches "(202)456-1111")
 
