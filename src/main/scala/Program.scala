@@ -8,13 +8,6 @@ def main() = {
   //////////////////////////////////////////////////////////////////////////////
   // Part 1
   //////////////////////////////////////////////////////////////////////////////
-  //
-  // TODO: Make it possible to replace the definitions with:
-  //
-  //     val zero = '0'
-  //     val one  = '1'
-  //     etc.
-  //
 
   val zero = '0'
   val one = '1'
@@ -41,13 +34,6 @@ def main() = {
   //////////////////////////////////////////////////////////////////////////////
   // Part 2
   //////////////////////////////////////////////////////////////////////////////
-  //
-  // TODO: Make it possible to replace the definition with:
-  //
-  //     val answer = "42"
-  //
-
-  // val answer = Concat(four, two)
   val answer = "42"
 
   require(answer matches "42")
@@ -55,11 +41,6 @@ def main() = {
   //////////////////////////////////////////////////////////////////////////////
   // Part 3a
   //////////////////////////////////////////////////////////////////////////////
-  //
-  // TODO: Make it possible to replace the definition with:
-  //
-  //    val digit = '0' || '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9'
-  //
 
   // val digit = Union(
   //   zero,
@@ -90,11 +71,6 @@ def main() = {
   //////////////////////////////////////////////////////////////////////////////
   // Part 3b
   //////////////////////////////////////////////////////////////////////////////
-  //
-  // TODO:  Make it possible to replace the definition with:
-  //
-  //     val pi = '3' ~ '1' ~ '4'
-  //
 
   // val pi = Concat(Character('3'), Concat(Character('1'), Character('4')))
   val pi = '3' ~ '1' ~ '4'
@@ -104,11 +80,6 @@ def main() = {
   //////////////////////////////////////////////////////////////////////////////
   // Part 3c
   //////////////////////////////////////////////////////////////////////////////
-  //
-  // TODO:  Make it possible to replace the definition with:
-  //
-  //     val zeroOrMoreDigits = digit <*>
-  //
 
   // val zeroOrMoreDigits = Star(digit)
   val zeroOrMoreDigits = digit <*>
@@ -122,11 +93,6 @@ def main() = {
   //////////////////////////////////////////////////////////////////////////////
   // Part 3d
   //////////////////////////////////////////////////////////////////////////////
-  //
-  // TODO:  Make it possible to replace the definition with:
-  //
-  //     val number = digit <+>
-  //
 
   // val number = Concat(digit, zeroOrMoreDigits)
   val number = digit <+>
@@ -140,11 +106,6 @@ def main() = {
   //////////////////////////////////////////////////////////////////////////////
   // Part 3e
   //////////////////////////////////////////////////////////////////////////////
-  //
-  // TODO:  Make it possible to replace the definition with:
-  //
-  //     val cThree = 'c'{3}
-  //
 
   // val cThree = Concat(Character('c'), Concat(Character('c'), Character('c')))
   val cThree = 'c'{3}
@@ -183,21 +144,21 @@ def main() = {
   //    val message = ("hello" <*>) ~ "world"
   //
 
-  val hello = Concat(
-    Character('h'),
-    Concat(
-      Character('e'),
-      Concat(Character('l'), Concat(Character('l'), Character('o')))
-    )
-  )
+  // val hello = Concat(
+  //   Character('h'),
+  //   Concat(
+  //     Character('e'),
+  //     Concat(Character('l'), Concat(Character('l'), Character('o')))
+  //   )
+  // )
 
-  val world = Concat(
-    Character('w'),
-    Concat(
-      Character('o'),
-      Concat(Character('r'), Concat(Character('l'), Character('d')))
-    )
-  )
+  // val world = Concat(
+  //   Character('w'),
+  //   Concat(
+  //     Character('o'),
+  //     Concat(Character('r'), Concat(Character('l'), Character('d')))
+  //   )
+  // )
 
   // val message = Concat(Star(hello), world)
   val message = ("hello" <*>) ~ "world"
@@ -216,9 +177,9 @@ def main() = {
   //    val telNumber = '(' ~ digit{3} ~ ')' ~ digit{3} ~ '-' ~ digit{4}
   //
 
-  val threeDigits = Concat(digit, Concat(digit, digit))
-  val fourDigits = Concat(threeDigits, digit)
-  val areaCode = Concat(Character('('), Concat(threeDigits, Character(')')))
+  // val threeDigits = Concat(digit, Concat(digit, digit))
+  // val fourDigits = Concat(threeDigits, digit)
+  // val areaCode = Concat(Character('('), Concat(threeDigits, Character(')')))
   // val telNumber =
   //   Concat(areaCode, Concat(threeDigits, Concat(Character('-'), fourDigits)))
   val telNumber = '(' ~ digit{3} ~ ')' ~ digit{3} ~ '-' ~ digit{4}

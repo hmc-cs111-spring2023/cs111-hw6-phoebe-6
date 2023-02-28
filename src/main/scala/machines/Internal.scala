@@ -24,16 +24,15 @@ def extractChars(l: RegularLanguage): Set[Char] = l match
     
 
 given Conversion[RegularLanguage, DFA] = 
-    l => l.toDFA(using extractChars(l))
+    l => regexToDFA(l, extractChars(l))
 
 extension (l: RegularLanguage)
     def ||(other: RegularLanguage): RegularLanguage = Union(l, other)
     def ~(other: RegularLanguage): RegularLanguage = Concat(l, other)
     def <*> = Star(l)
     def <+> = Concat(l, Star(l))
-    def apply(n: Int) = 
-        var result = l
-        for i <- 1 to n-1 do result = Concat(l, result)
-        result
+    def apply(n: Int): RegularLanguage = 
+        if n < 1 then Epsilon
+        else Concat(l,l{n-1}) // curly braces is equivalent to apply
     
     def toDFA(using s: Set[Char]): DFA = regexToDFA(l, s)
