@@ -3,10 +3,7 @@ package machines
 import regex._
 import dfa._
 import scala.language.implicitConversions
-// import scala.language.postPostfixOps
 
-
-// TODO: Add your code below
 given Conversion[Char, RegularLanguage] = Character(_)
 
 given Conversion[String, RegularLanguage] = 
