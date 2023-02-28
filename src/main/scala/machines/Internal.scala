@@ -23,4 +23,5 @@ extension (l: RegularLanguage)
         for i <- 1 to n-1 do result = Concat(l, result)
         result
     
+    def toDFA(using s: Set[Char]): DFA = regexToDFA(s,l)
 
